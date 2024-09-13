@@ -1,0 +1,38 @@
+.orderbook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orders {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.buy-orders, .sell-orders {
+  width: 45%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: right;
+  border: 1px solid #ddd;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th {
+  font-weight: bold;
+}
+
+h3 {
+  text-align: center;
+}

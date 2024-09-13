@@ -1,0 +1,57 @@
+<div class="orderbook">
+  <h2>Orderbook ({{ productId }})</h2>
+
+  <div class="grouping">
+    <label for="grouping">Grouping:</label>
+    <select id="grouping" (change)="changeGrouping($any($event.target).value)">
+      <option *ngFor="let group of getGroupingOptions()" [value]="group" [selected]="grouping === group">{{ group }}</option>
+    </select>
+  </div>
+
+  <div class="orders" style="height: calc(100vh - 150px); overflow: auto">
+    <div class="buy-orders">
+      <h3>Buy Orders</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Price</th>
+          <th>Size</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of buyOrders">
+          <td>{{ order.price }}</td>
+          <td>{{ order.size }}</td>
+          <td>{{ order.total }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sell-orders">
+      <h3>Sell Orders</h3>
+      <table>
+        <thead>
+        <tr>
+          <th>Total</th>
+          <th>Size</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of sellOrders">
+          <td>{{ order.total }}</td>
+          <td>{{ order.size }}</td>
+          <td>{{ order.price }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button (click)="toggleFeed()">Toggle Feed</button>
+    <button (click)="killFeed()">Kill Feed</button>
+  </div>
+</div>
